@@ -99,7 +99,7 @@ struct Plist {
 
 }
 
-enum SwiftyPlistManagerError: Error {
+public enum SwiftyPlistManagerError: Error {
   case fileNotWritten
   case fileDoesNotExist
   case fileUnavailable
@@ -108,14 +108,14 @@ enum SwiftyPlistManagerError: Error {
   case keyValuePairDoesNotExist
 }
 
-class SwiftyPlistManager {
+public class SwiftyPlistManager {
   
-  static let shared = SwiftyPlistManager()
+  public static let shared = SwiftyPlistManager()
   private init() {} //This prevents others from using the default '()' initializer for this class.
   
   var logPlistManager: Bool = false
   
-  func start(plistNames: [String], logging: Bool) {
+  public func start(plistNames: [String], logging: Bool) {
     
     logPlistManager = logging
     
@@ -135,7 +135,7 @@ class SwiftyPlistManager {
     
   }
   
-  func addNew(_ value: Any, key: String, toPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
+  public func addNew(_ value: Any, key: String, toPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
     plistManagerPrint("Starting to add value '\(value)' for key '\(key) to '\(toPlistWithName).plist' . . .")
     if !keyAlreadyExists(key: key, inPlistWithName: toPlistWithName) {
       if let plist = Plist(name: toPlistWithName) {
@@ -170,7 +170,7 @@ class SwiftyPlistManager {
     
   }
   
-  func removeValueKeyPair(for key: String, fromPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
+  public func removeValueKeyPair(for key: String, fromPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
     plistManagerPrint("Starting to remove Key-Value pair for '\(key) from \(fromPlistWithName).plist . . .")
     if keyAlreadyExists(key: key, inPlistWithName: fromPlistWithName) {
       if let plist = Plist(name: fromPlistWithName) {
@@ -203,7 +203,7 @@ class SwiftyPlistManager {
     
   }
   
-  func removeAllKeyValuePairs(fromPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
+  public func removeAllKeyValuePairs(fromPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
     
     if let plist = Plist(name: fromPlistWithName) {
       
@@ -239,7 +239,7 @@ class SwiftyPlistManager {
     }
   }
   
-  func save(_ value: Any, forKey: String, toPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
+  public func save(_ value: Any, forKey: String, toPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
     
     if let plist = Plist(name: toPlistWithName) {
       
@@ -275,7 +275,7 @@ class SwiftyPlistManager {
     }
   }
   
-  func fetchValue(for key: String, fromPlistWithName: String) -> Any? {
+  public func fetchValue(for key: String, fromPlistWithName: String) -> Any? {
     var value:Any?
     
     if let plist = Plist(name: fromPlistWithName) {
@@ -319,7 +319,7 @@ class SwiftyPlistManager {
     }
   }
   
-  func getValue(for key: String, fromPlistWithName: String, completion:(_ result : Any?, _ error :SwiftyPlistManagerError?) -> ()) {
+  public func getValue(for key: String, fromPlistWithName: String, completion:(_ result : Any?, _ error :SwiftyPlistManagerError?) -> ()) {
     var value:Any?
     
     if let plist = Plist(name: fromPlistWithName) {

@@ -125,7 +125,7 @@ public class SwiftyPlistManager {
     for plistName in plistNames {
       itemCount += 1
       if let _ = Plist(name: plistName) {
-        plistManagerPrint("Initialized \(plistName).plist")
+        plistManagerPrint("Initialized '\(plistName).plist'")
       }
     }
     
@@ -136,12 +136,12 @@ public class SwiftyPlistManager {
   }
   
   public func addNew(_ value: Any, key: String, toPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
-    plistManagerPrint("Starting to add value '\(value)' for key '\(key) to '\(toPlistWithName).plist' . . .")
+    plistManagerPrint("Starting to add value '\(value)' for key '\(key)' to '\(toPlistWithName).plist' . . .")
     if !keyAlreadyExists(key: key, inPlistWithName: toPlistWithName) {
       if let plist = Plist(name: toPlistWithName) {
         
         guard let dict = plist.getMutablePlistFile() else {
-          plistManagerPrint("Unable to get \(toPlistWithName).plist")
+          plistManagerPrint("Unable to get '\(toPlistWithName).plist'")
           completion(.fileUnavailable)
           return
         }
@@ -159,7 +159,7 @@ public class SwiftyPlistManager {
         logAction(for: plist, withPlistName: toPlistWithName)
         
       } else {
-        plistManagerPrint("Unable to get \(toPlistWithName).plist")
+        plistManagerPrint("Unable to get '\(toPlistWithName).plist'")
         completion(.fileUnavailable)
       }
     } else {
@@ -171,12 +171,12 @@ public class SwiftyPlistManager {
   }
   
   public func removeValueKeyPair(for key: String, fromPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
-    plistManagerPrint("Starting to remove Key-Value pair for '\(key) from \(fromPlistWithName).plist . . .")
+    plistManagerPrint("Starting to remove Key-Value pair for '\(key)' from '\(fromPlistWithName).plist' . . .")
     if keyAlreadyExists(key: key, inPlistWithName: fromPlistWithName) {
       if let plist = Plist(name: fromPlistWithName) {
         
         guard let dict = plist.getMutablePlistFile() else {
-          plistManagerPrint("Unable to get \(fromPlistWithName).plist")
+          plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
           completion(.fileUnavailable)
           return
         }
@@ -193,7 +193,7 @@ public class SwiftyPlistManager {
         logAction(for: plist, withPlistName: fromPlistWithName)
         
       } else {
-        plistManagerPrint("Unable to get \(fromPlistWithName).plist")
+        plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
         completion(.fileUnavailable)
       }
     } else {
@@ -208,7 +208,7 @@ public class SwiftyPlistManager {
     if let plist = Plist(name: fromPlistWithName) {
       
       guard let dict = plist.getMutablePlistFile() else {
-        plistManagerPrint("Unable to get \(fromPlistWithName).plist")
+        plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
         completion(.fileUnavailable)
         return
       }
@@ -218,7 +218,7 @@ public class SwiftyPlistManager {
       if keys.count != 0 {
         dict.removeAllObjects()
       } else {
-        plistManagerPrint("\(fromPlistWithName).plist is already empty. Removal of all key-value pairs canceled.")
+        plistManagerPrint("'\(fromPlistWithName).plist' is already empty. Removal of all key-value pairs canceled.")
         completion(.fileAlreadyEmpty)
         return
       }
@@ -234,7 +234,7 @@ public class SwiftyPlistManager {
       logAction(for: plist, withPlistName: fromPlistWithName)
       
     } else {
-      plistManagerPrint("Unable to get \(fromPlistWithName).plist")
+      plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
       completion(.fileUnavailable)
     }
   }
@@ -244,7 +244,7 @@ public class SwiftyPlistManager {
     if let plist = Plist(name: toPlistWithName) {
       
       guard let dict = plist.getMutablePlistFile() else {
-        plistManagerPrint("Unable to get \(toPlistWithName).plist")
+        plistManagerPrint("Unable to get '\(toPlistWithName).plist'")
         completion(.fileUnavailable)
         return
       }
@@ -252,7 +252,7 @@ public class SwiftyPlistManager {
       if let dictValue = dict[forKey] {
         
         if type(of: value) != type(of: dictValue){
-          plistManagerPrint("WARNING: You are saving a \(type(of: value)) typed value into a \(type(of: dictValue)) typed value. Best practice is to save Int values to Int fields, String values to String fields etc. (For example: '_NSContiguousString' to '__NSCFString' is ok too; they are both String types) If you believe that this mismatch in the types of the values is ok and will not break your code than disregard this message.")
+          plistManagerPrint("WARNING: You are saving a '\(type(of: value))' typed value into a '\(type(of: dictValue))' typed value. Best practice is to save Int values to Int fields, String values to String fields etc. (For example: '_NSContiguousString' to '__NSCFString' is ok too; they are both String types) If you believe that this mismatch in the types of the values is ok and will not break your code than disregard this message.")
         }
         
         dict[forKey] = value
@@ -270,7 +270,7 @@ public class SwiftyPlistManager {
       logAction(for: plist, withPlistName: toPlistWithName)
       
     } else {
-      plistManagerPrint("Unable to get \(toPlistWithName).plist")
+      plistManagerPrint("Unable to get '\(toPlistWithName).plist'")
       completion(.fileUnavailable)
     }
   }
@@ -281,7 +281,7 @@ public class SwiftyPlistManager {
     if let plist = Plist(name: fromPlistWithName) {
       
       guard let dict = plist.getMutablePlistFile() else {
-        plistManagerPrint("Unable to get \(fromPlistWithName).plist")
+        plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
         return nil
       }
       
@@ -293,7 +293,7 @@ public class SwiftyPlistManager {
         for (_,element) in keys.enumerated() {
           //print("[PlistManager] Key Index - \(index) = \(element)")
           if element as! String == key {
-            plistManagerPrint("Found the Value that we were looking for for key: [\(key)]")
+            plistManagerPrint("Found the Value that we were looking for for key: \(key)")
             value = dict[key]! as Any
           } else {
             //print("[PlistManager] This is Item with key '\(element)' and not the Item that we are looking for with key: \(key)")
@@ -304,17 +304,17 @@ public class SwiftyPlistManager {
           plistManagerPrint("Sending value to completion handler: \(value ?? "Default Value" as Any)")
           return value
         } else {
-          plistManagerPrint("WARNING: The Value for key '\(key)' does not exist in \(fromPlistWithName).plist! Please, check your spelling.")
+          plistManagerPrint("WARNING: The Value for key '\(key)' does not exist in '\(fromPlistWithName).plist'! Please, check your spelling.")
           return nil
         }
         
       } else {
-        plistManagerPrint("No Value Found in \(fromPlistWithName).plist when searching for item with key: \(key). The Plist is Empty!")
+        plistManagerPrint("No Value Found in '\(fromPlistWithName).plist' when searching for item with key: \(key). The Plist is Empty!")
         return nil
       }
       
     } else {
-      plistManagerPrint("Unable to get \(fromPlistWithName).plist")
+      plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
       return nil
     }
   }
@@ -325,7 +325,7 @@ public class SwiftyPlistManager {
     if let plist = Plist(name: fromPlistWithName) {
       
       guard let dict = plist.getMutablePlistFile() else {
-        plistManagerPrint("Unable to get \(fromPlistWithName).plist")
+        plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
         completion(nil, .fileUnavailable)
         return
       }
@@ -338,7 +338,7 @@ public class SwiftyPlistManager {
         for (_,element) in keys.enumerated() {
           //print("[PlistManager] Key Index - \(index) = \(element)")
           if element as! String == key {
-            plistManagerPrint("Found the Value that we were looking for for key: [\(key)]")
+            plistManagerPrint("Found the Value that we were looking for for key: \(key)")
             value = dict[key]! as Any
           } else {
             //print("[PlistManager] This is Item with key '\(element)' and not the Item that we are looking for with key: \(key)")
@@ -349,17 +349,17 @@ public class SwiftyPlistManager {
           plistManagerPrint("Sending value to completion handler: \(value ?? "Default Value" as Any)")
           completion(value, nil)
         } else {
-          plistManagerPrint("WARNING: The Value for key '\(key)' does not exist in \(fromPlistWithName).plist! Please, check your spelling.")
+          plistManagerPrint("WARNING: The Value for key '\(key)' does not exist in '\(fromPlistWithName).plist'! Please, check your spelling.")
           completion(nil, .keyValuePairDoesNotExist)
         }
         
       } else {
-        plistManagerPrint("No Value Found in \(fromPlistWithName).plist when searching for item with key: \(key). The Plist is Empty!")
+        plistManagerPrint("No Value Found in '\(fromPlistWithName).plist' when searching for item with key: \(key). The Plist is Empty!")
         completion(nil, .fileAlreadyEmpty)
       }
       
     } else {
-      plistManagerPrint("Unable to get \(fromPlistWithName).plist")
+      plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
       completion(nil, .fileUnavailable)
     }
     
@@ -381,7 +381,7 @@ public class SwiftyPlistManager {
           
           //print("[PlistManager] Key Index - \(index) = \(element)")
           if element as! String == key {
-            plistManagerPrint("Checked if item exists in \(inPlistWithName).plist and found it for key: [\(key)]")
+            plistManagerPrint("Checked if item exists in '\(inPlistWithName).plist' and found it for key: \(key)")
             keyExists = true
           } else {
             //print("[PlistManager] This is Element with key '\(element)' and not the Element that we are looking for with Key: \(key)")
@@ -402,13 +402,13 @@ public class SwiftyPlistManager {
   func logAction(for plist:Plist, withPlistName: String) {
     if logPlistManager {
       
-      plistManagerPrint("An Action has been performed. You can check if it went ok by taking a look at the current content of the \(withPlistName).plist file: ")
+      plistManagerPrint("An Action has been performed. You can check if it went ok by taking a look at the current content of the '\(withPlistName).plist' file: ")
       
       do {
         let plistValues = try plist.getValuesInPlistFile()
         plistManagerPrint("\(plistValues ?? [:])")
       } catch {
-        plistManagerPrint("Could not retreive \(withPlistName).plist values")
+        plistManagerPrint("Could not retreive '\(withPlistName).plist' values.")
         plistManagerPrint(error)
       }
       

@@ -23,21 +23,37 @@
  */
 
 import UIKit
+////////////////////////////////////////////////////////////////////////////////////
+//
+// First of all drag and drop these 2 helper files into your project:
+// MyData.plist
+// MySecondPlist.plist
+//
+////////////////////////////////////////////////////////////////////////////////////
+//
+// INSTALATION:
+// 
+// I. CocoaPods:
+// 
+// 1. run in terminal on the root of your project: pod init
+// 2. add to your Podfile: pod 'SwiftyPlistManager'
+// 3. run in terminal on the root of your project: pod install
+// 4. import SwiftyPlistManager by commenting out the line below
+
+//import SwiftyPlistManager
+
+// or II. Manualy:
+//
+// Drag and drop SwiftyPlistManager.swift into your project
+////////////////////////////////////////////////////////////////////////////////////
 
 class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Updated to Swift 3
     
     ////////////////////////////////////////////////////////////////////////////////////
-    // First of all drag and drop these 3 files into your project:
-    // MyData.plist
-    // MySecondPlist.plist
-    // SwiftyPlistManager.swift
-    
-    ////////////////////////////////////////////////////////////////////////////////////
-    // That's all for the setup. Now let's start coding!
+    // Now let's start coding!
     // It is always a good practice to make our keys typo-proof
     // Comment out the lines below by deleting the '/*' and '*/'
     // For now don't worry about Xcode complaining about them

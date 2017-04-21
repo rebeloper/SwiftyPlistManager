@@ -25,6 +25,11 @@
 import UIKit
 ////////////////////////////////////////////////////////////////////////////////////
 //
+// For a detailed tutorial with images visit:
+//
+//      http://rebeloper.com/read-write-plist-file-swift/
+//
+////////////////////////////////////////////////////////////////////////////////////
 // First of all drag and drop these 2 helper files into your project:
 // MyData.plist
 // MySecondPlist.plist
@@ -35,9 +40,9 @@ import UIKit
 // 
 // I. CocoaPods:
 // 
-// 1. run in terminal on the root of your project: pod init
+// 1. run in Terminal on the root of your project: pod init
 // 2. add to your Podfile: pod 'SwiftyPlistManager'
-// 3. run in terminal on the root of your project: pod install
+// 3. run in Terminal on the root of your project: pod install
 // 4. import SwiftyPlistManager by commenting out the line below
 
 //import SwiftyPlistManager
@@ -90,7 +95,7 @@ class ViewController: UIViewController {
     // For the sake of this tutorial let's just add it here. This is fine too, as long as it is fired on every launch.
     //
     // Set 'logging' to 'true' if you want to log what's going on under the hood. Optionaly set it to 'false'
-    // before release or when you ar efed up with too much text in the console.
+    // before release or when you are fed up with too much text in the console.
     
     //SwiftyPlistManager.shared.start(plistNames: [dataPlistName], logging: true)
     
@@ -354,7 +359,7 @@ class ViewController: UIViewController {
     /*
     SwiftyPlistManager.shared.removeValueKeyPair(for: thirdKey, fromPlistWithName: dataPlistName) { (err) in
       if err == nil {
-        print("-------------> Value-Key pair successfully removed at Key '\(thirdKey)' from '\(dataPlistName).plist'")
+        print("-------------> Key-Value pair successfully removed at Key '\(thirdKey)' from '\(dataPlistName).plist'")
       }
     }*/
     

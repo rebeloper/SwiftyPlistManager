@@ -1,1 +1,2 @@
-![SwiftyPlistManager](https://github.com/rebeloper/SwiftyPlistManager/blob/master/SwiftyPlistManager/SwiftyPlistManagerLogo.gif?raw=false)
+![SwiftyPlistManager](https://github.com/rebeloper/SwiftyPlistManager/blob/master/SwiftyPlistManager/SwiftyPlistManagerLogo.gif?raw=true)
+SwiftyPlistManager is a lightweight data management framework for iOS 10.3+

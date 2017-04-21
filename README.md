@@ -82,7 +82,7 @@ Once in a while you might want to remove a value-key pair.
 ```swift
 SwiftyPlistManager.shared.removeValueKeyPair(for: "newKey", fromPlistWithName: "Data") { (err) in
   if err == nil {
-    print("-------------> Key-Value pair successfully removed from plist")
+    print("Key-Value pair successfully removed from plist")
   }
 }
 ```
@@ -94,7 +94,7 @@ Or you might want to delete all the data from your plist file.
 ```swift
 SwiftyPlistManager.shared.removeAllKeyValuePairs(fromPlistWithName: "Data") { (err) in
   if err == nil {
-    print("-------------> Successfully removed all Key-Value pairs from plist")
+    print("Successfully removed all Key-Value pairs from plist")
   }
 }
 ```
@@ -115,3 +115,44 @@ public enum SwiftyPlistManagerError: Error {
   case keyValuePairDoesNotExist
 }
 ```
+
+## Installation
+### CocoaPods
+
+SwiftyPlistManager can be installed as a [CocoaPod](https://cocoapods.org/) and builds as a Swift framework. To install, include this in your Podfile.
+
+```ruby
+use_frameworks!
+
+pod 'SwiftyPlistManager'
+```
+
+Once installed, just ```import SwiftyPlistManager``` in your classes and you're good to go.
+
+### Manualy
+
+Clode or download the repo. Find the `SwiftyPlistManager.swift` file. Drag and drop it into your project and you're set up.
+
+## Swift 3.1
+
+| Language  | Branch | Pod version | Xcode version |
+| --------- | ------ | ----------- | ------------- |
+| Swift 3.1 | [master](https://github.com/rebeloper/SwiftyPlistManager/tree/master) | >= 1.0.0 | Xcode 8.3 or greater|
+
+## Change Log
+
+See the [Releases Page](https://github.com/rebeloper/SwiftyPlistManager/releases)
+
+## Known caveat
+
+* You can manipulate the plist file only on the root-keys. Nested key-value pairs (like elemnts in a dictionary) cannot be accessed directly. You'll need to get the whole dictionary from the plist, make your changes, than finally save your changed dictionry back into the plist.
+* The actual saving takes place under the hood in the Document directory. Because of this your changes will not be reflected in the plist file you added into your project.
+
+## Sample Code
+The project includes a demo app for iOS with a sample [ViewController.swift](https://github.com/rebeloper/SwiftyPlistManager/blob/master/SwiftyPlistManager/ViewController.swift) showing how to use SwiftyPlistManager.
+
+## Step by step tutorial
+
+I have written a [blog post on rebeloper.com](http://rebeloper.com/read-write-plist-file-swift/) with even more info on the usage of SwiftyPlistManager and handy images.
+
+## License

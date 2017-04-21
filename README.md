@@ -6,4 +6,4 @@
 [![Cocoapod](http://img.shields.io/cocoapods/v/SwiftyPlistManager.svg?style=flat)](http://cocoadocs.org/)
 [![Twitter](https://img.shields.io/badge/twitter-@rebeloper-blue.svg?maxAge=2592000)](http://twitter.com/rebeloper)
 
-SwiftyPlistManager is a lightweight data management framework for iOS 10.3+
+SwiftyPlistManager is a lightweight plist data management framework for iOS 10.3+

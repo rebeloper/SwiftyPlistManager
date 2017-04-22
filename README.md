@@ -152,7 +152,7 @@ Clode or download the repo. Find the `SwiftyPlistManager.swift` file. Drag and d
 
 See the [Releases Page](https://github.com/rebeloper/SwiftyPlistManager/releases)
 
-## Known caveat
+## Known caveats
 
 * You can manipulate the plist file only on the root-keys. Nested key-value pairs (like elemnts in a dictionary) cannot be accessed directly. You'll need to get the whole dictionary from the plist, make your changes, than finally save your changed dictionry back into the plist.
 * The actual saving takes place under the hood in the Document directory. Because of this your changes will not be reflected in the plist file you added into your project.

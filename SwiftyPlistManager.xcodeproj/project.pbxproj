@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C91329291EABD5CF000B66D3 /* spm019.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C91329281EABD5CF000B66D3 /* spm019.jpg */; };
+		C913292B1EABD605000B66D3 /* spm023.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C913292A1EABD605000B66D3 /* spm023.jpg */; };
+		C913292D1EABD60F000B66D3 /* spm024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C913292C1EABD60F000B66D3 /* spm024.jpg */; };
 		C9946FE31EAA0564009F4408 /* SwiftyPlistManagerLogo.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9946FE21EAA0564009F4408 /* SwiftyPlistManagerLogo.gif */; };
 		C99DA7261EA7C438004896C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99DA7251EA7C438004896C5 /* AppDelegate.swift */; };
 		C99DA72B1EA7C438004896C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99DA7291EA7C438004896C5 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C91329281EABD5CF000B66D3 /* spm019.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spm019.jpg; sourceTree = "<group>"; };
+		C913292A1EABD605000B66D3 /* spm023.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spm023.jpg; sourceTree = "<group>"; };
+		C913292C1EABD60F000B66D3 /* spm024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spm024.jpg; sourceTree = "<group>"; };
 		C9946FE21EAA0564009F4408 /* SwiftyPlistManagerLogo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = SwiftyPlistManagerLogo.gif; sourceTree = "<group>"; };
 		C99DA7221EA7C438004896C5 /* SwiftyPlistManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyPlistManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99DA7251EA7C438004896C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +52,9 @@
 		C9946FE11EAA0536009F4408 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				C91329281EABD5CF000B66D3 /* spm019.jpg */,
+				C913292A1EABD605000B66D3 /* spm023.jpg */,
+				C913292C1EABD60F000B66D3 /* spm024.jpg */,
 				C9946FE21EAA0564009F4408 /* SwiftyPlistManagerLogo.gif */,
 			);
 			name = Misc;
@@ -150,6 +159,9 @@
 				C99DA72D1EA7C438004896C5 /* Assets.xcassets in Resources */,
 				C99DA73B1EA7C45A004896C5 /* Data.plist in Resources */,
 				C99DA72B1EA7C438004896C5 /* Main.storyboard in Resources */,
+				C913292B1EABD605000B66D3 /* spm023.jpg in Resources */,
+				C91329291EABD5CF000B66D3 /* spm019.jpg in Resources */,
+				C913292D1EABD60F000B66D3 /* spm024.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

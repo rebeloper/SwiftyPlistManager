@@ -8,6 +8,15 @@
 
 SwiftyPlistManager is a lightweight plist data management framework for iOS 10.3+
 
+## Step by step tutorial
+
+I have written a [blog post on rebeloper.com](http://rebeloper.com/read-write-plist-file-swift/) with even more info on the usage of SwiftyPlistManager and handy images.
+
+## Screenshots
+![Save data](https://github.com/rebeloper/SwiftyPlistManager/blob/master/SwiftyPlistManager/spm019.jpg?raw=true)
+![Get data](https://github.com/rebeloper/SwiftyPlistManager/blob/master/SwiftyPlistManager/spm023.jpg?raw=true)
+![Fetch data](https://github.com/rebeloper/SwiftyPlistManager/blob/master/SwiftyPlistManager/spm024.jpg?raw=true)
+
 ## Setup
 
 SwiftyPlistManager needs template plist files to use them as the starting point of your data saving and loading. Basically on the first launch of the app it will copy it into it's Document directory and after that you'll be interacting with this copied version of the plist.
@@ -150,10 +159,6 @@ See the [Releases Page](https://github.com/rebeloper/SwiftyPlistManager/releases
 
 ## Sample Code
 The project includes a demo app for iOS with a sample [ViewController.swift](https://github.com/rebeloper/SwiftyPlistManager/blob/master/SwiftyPlistManager/ViewController.swift) showing how to use SwiftyPlistManager.
-
-## Step by step tutorial
-
-I have written a [blog post on rebeloper.com](http://rebeloper.com/read-write-plist-file-swift/) with even more info on the usage of SwiftyPlistManager and handy images.
 
 ## License
 

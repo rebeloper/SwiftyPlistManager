@@ -148,7 +148,6 @@ Clode or download the repo. Find the `SwiftyPlistManager.swift` file. Drag and d
 | Language  | Branch | Pod version | Xcode version |
 | --------- | ------ | ----------- | ------------- |
 | Swift 3.1 | [master](https://github.com/rebeloper/SwiftyPlistManager/tree/master) | >= 1.0.1 | Xcode 8.3 or greater|
-| --------- | ------ | ----------- | ------------- |
 | Swift 4 | [master](https://github.com/rebeloper/SwiftyPlistManager/tree/master) | >= 1.0.1 | Xcode 9 or greater|
 
 ## Change Log

@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://mit-license.org)
 [![Platform](http://img.shields.io/badge/platform-ios-lightgrey.svg)](https://developer.apple.com/resources/)
 [![Language](https://img.shields.io/badge/swift-3.1-orange.svg)](https://developer.apple.com/swift)
+[![Language](https://img.shields.io/badge/swift-4-orange.svg)](https://developer.apple.com/swift)
 [![Cocoapod](http://img.shields.io/cocoapods/v/SwiftyPlistManager.svg?style=flat)](http://cocoadocs.org/)
 [![Twitter](https://img.shields.io/badge/twitter-@rebeloper-blue.svg?maxAge=2592000)](http://twitter.com/rebeloper)
 
@@ -146,7 +147,9 @@ Clode or download the repo. Find the `SwiftyPlistManager.swift` file. Drag and d
 
 | Language  | Branch | Pod version | Xcode version |
 | --------- | ------ | ----------- | ------------- |
-| Swift 3.1 | [master](https://github.com/rebeloper/SwiftyPlistManager/tree/master) | >= 1.0.0 | Xcode 8.3 or greater|
+| Swift 3.1 | [master](https://github.com/rebeloper/SwiftyPlistManager/tree/master) | >= 1.0.1 | Xcode 8.3 or greater|
+| --------- | ------ | ----------- | ------------- |
+| Swift 4 | [master](https://github.com/rebeloper/SwiftyPlistManager/tree/master) | >= 1.0.1 | Xcode 9 or greater|
 
 ## Change Log
 

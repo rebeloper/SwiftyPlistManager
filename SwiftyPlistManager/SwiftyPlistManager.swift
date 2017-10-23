@@ -170,7 +170,7 @@ public class SwiftyPlistManager {
     
   }
   
-  public func removeValueKeyPair(for key: String, fromPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
+  public func removeKeyValuePair(for key: String, fromPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
     plistManagerPrint("Starting to remove Key-Value pair for '\(key)' from '\(fromPlistWithName).plist' . . .")
     if keyAlreadyExists(key: key, inPlistWithName: fromPlistWithName) {
       if let plist = Plist(name: fromPlistWithName) {

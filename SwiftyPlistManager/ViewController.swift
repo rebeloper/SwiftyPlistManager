@@ -357,7 +357,7 @@ class ViewController: UIViewController {
     // Once in a while you might want to remove a value-key pair
     
     /*
-    SwiftyPlistManager.shared.removeValueKeyPair(for: thirdKey, fromPlistWithName: dataPlistName) { (err) in
+    SwiftyPlistManager.shared.removeKeyValuePair(for: thirdKey, fromPlistWithName: dataPlistName) { (err) in
       if err == nil {
         print("-------------> Key-Value pair successfully removed at Key '\(thirdKey)' from '\(dataPlistName).plist'")
       }

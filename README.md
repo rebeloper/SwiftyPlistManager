@@ -30,13 +30,13 @@ Just drag and drop (or create) your plist file(s) into your project. Optionaly y
 
 ## Starting SwiftyPlistManager
 
-IMPORTANT: You always have to "start" SwiftyPlistManager on every launch of your app. Let's assume you have an empty `Data.plist` file added to your project and you want to log Add the next line of code to your `application(_:didFinishLaunchingWithOptions:)` function in `Appdelegate.swift`
+**IMPORTANT**: You always have to "start" SwiftyPlistManager on every launch of your app. Let's assume you have an empty `Data.plist` file added to your project and you want to log Add the next line of code to your `application(_:didFinishLaunchingWithOptions:)` function in `Appdelegate.swift`
 
 ```swift
 SwiftyPlistManager.shared.start(plistNames: ["Data"], logging: true)
 ```
 
-Set `logging` to `true` if you want to log what's going on under the hood. Optionaly set it to `false` before release or when you are fed up with too much text in the console.
+Set `logging` to `true` if you want to log what's going on under the hood. Optionally, set it to `false` before release or when you are fed up with too much text in the console.
 
 The `plistNames` parameter takes in an array of `String`s. You may start SwiftyPlistManager with as many plist file names as you'd like.
 
@@ -145,7 +145,7 @@ Once installed, just ```import SwiftyPlistManager``` in your classes and you're 
 
 ### Manualy
 
-Clode or download the repo. Find the `SwiftyPlistManager.swift` file. Drag and drop it into your project and you're set up.
+Clone or download the repo. Find the `SwiftyPlistManager.swift` file. Drag and drop it into your project and you're set up.
 
 ## Swift 3.1
 
@@ -160,7 +160,7 @@ See the [Releases Page](https://github.com/rebeloper/SwiftyPlistManager/releases
 
 ## Known caveats
 
-* You can manipulate the plist file only on the root-keys. Nested key-value pairs (like elemnts in a dictionary) cannot be accessed directly. You'll need to get the whole dictionary from the plist, make your changes, than finally save your changed dictionry back into the plist.
+* You can manipulate the plist file only on the root-keys. Nested key-value pairs (like elemnts in a dictionary) cannot be accessed directly. You'll need to get the whole dictionary from the plist, make your changes, than finally save your changed dictionary back into the plist.
 * The actual saving takes place under the hood in the Document directory. Because of this your changes will not be reflected in the plist file you added into your project.
 
 ## Sample Code

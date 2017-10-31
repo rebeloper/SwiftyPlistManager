@@ -91,10 +91,10 @@ guard let fetchedValue = SwiftyPlistManager.shared.fetchValue(for: "newKey", fro
 
 ### Remove key-value pair
 
-Once in a while you might want to remove a value-key pair.
+Once in a while you might want to remove a key-value pair.
 
 ```swift
-SwiftyPlistManager.shared.removeValueKeyPair(for: "newKey", fromPlistWithName: "Data") { (err) in
+SwiftyPlistManager.shared.removeKeyValuePair(for: "newKey", fromPlistWithName: "Data") { (err) in
   if err == nil {
     print("Key-Value pair successfully removed from plist")
   }

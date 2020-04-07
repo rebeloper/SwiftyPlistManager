@@ -275,129 +275,53 @@ public class SwiftyPlistManager {
     }
   }
   
-  public func fetchValue(for key: String, fromPlistWithName: String) -> Any? {
-    var value:Any?
-    
-    if let plist = Plist(name: fromPlistWithName) {
-      
-      guard let dict = plist.getMutablePlistFile() else {
-        plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
-        return nil
-      }
-      
-      let keys = Array(dict.allKeys)
-      //plistManagerPrint("Keys are: \(keys)")
-      
-      if keys.count != 0 {
+    public func fetchValue(for key: String, fromPlistWithName: String) -> Any? {
         
-        for (_,element) in keys.enumerated() {
-          //print("[PlistManager] Key Index - \(index) = \(element)")
-          if element as! String == key {
-            plistManagerPrint("Found the Value that we were looking for for key: \(key)")
-            value = dict[key]! as Any
-          } else {
-            //print("[PlistManager] This is Item with key '\(element)' and not the Item that we are looking for with key: \(key)")
-          }
+        guard let plist = Plist(name: fromPlistWithName),
+            let dict = plist.getMutablePlistFile() else {
+                plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
+                return nil
         }
         
-        if value != nil {
-          plistManagerPrint("Sending value to completion handler: \(value ?? "Default Value" as Any)")
-          return value
-        } else {
-          plistManagerPrint("WARNING: The Value for key '\(key)' does not exist in '\(fromPlistWithName).plist'! Please, check your spelling.")
-          return nil
+        guard let value = dict[key] else {
+            plistManagerPrint("WARNING: The Value for key '\(key)' does not exist in '\(fromPlistWithName).plist'! Please, check your spelling.")
+            return nil
         }
         
-      } else {
-        plistManagerPrint("No Value Found in '\(fromPlistWithName).plist' when searching for item with key: \(key). The Plist is Empty!")
-        return nil
-      }
-      
-    } else {
-      plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
-      return nil
+        plistManagerPrint("Sending value to completion handler: \(value)")
+        return value
+        
     }
-  }
   
-  public func getValue(for key: String, fromPlistWithName: String, completion:(_ result : Any?, _ error :SwiftyPlistManagerError?) -> ()) {
-    var value:Any?
-    
-    if let plist = Plist(name: fromPlistWithName) {
-      
-      guard let dict = plist.getMutablePlistFile() else {
-        plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
-        completion(nil, .fileUnavailable)
-        return
-      }
-      
-      let keys = Array(dict.allKeys)
-      //plistManagerPrint("Keys are: \(keys)")
-      
-      if keys.count != 0 {
+    public func getValue(for key: String, fromPlistWithName: String, completion:(_ result : Any?, _ error :SwiftyPlistManagerError?) -> ()) {
         
-        for (_,element) in keys.enumerated() {
-          //print("[PlistManager] Key Index - \(index) = \(element)")
-          if element as! String == key {
-            plistManagerPrint("Found the Value that we were looking for for key: \(key)")
-            value = dict[key]! as Any
-          } else {
-            //print("[PlistManager] This is Item with key '\(element)' and not the Item that we are looking for with key: \(key)")
-          }
+        guard let plist = Plist(name: fromPlistWithName),
+            let dict = plist.getMutablePlistFile() else {
+                plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
+                completion(nil, .fileUnavailable)
+                return
         }
         
-        if value != nil {
-          plistManagerPrint("Sending value to completion handler: \(value ?? "Default Value" as Any)")
-          completion(value, nil)
-        } else {
-          plistManagerPrint("WARNING: The Value for key '\(key)' does not exist in '\(fromPlistWithName).plist'! Please, check your spelling.")
-          completion(nil, .keyValuePairDoesNotExist)
+        guard let value = dict[key] else {
+            plistManagerPrint("WARNING: The Value for key '\(key)' does not exist in '\(fromPlistWithName).plist'! Please, check your spelling.")
+            completion(nil, .keyValuePairDoesNotExist)
+            return
         }
         
-      } else {
-        plistManagerPrint("No Value Found in '\(fromPlistWithName).plist' when searching for item with key: \(key). The Plist is Empty!")
-        completion(nil, .fileAlreadyEmpty)
-      }
-      
-    } else {
-      plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
-      completion(nil, .fileUnavailable)
+        plistManagerPrint("Sending value to completion handler: \(value)")
+        completion(value, nil)
+        
     }
-    
-  }
   
-  func keyAlreadyExists(key: String, inPlistWithName: String) -> Bool {
-    var keyExists = false
-    
-    if let plist = Plist(name: inPlistWithName) {
-      
-      guard let dict = plist.getMutablePlistFile() else { return keyExists }
-      
-      let keys = Array(dict.allKeys)
-      //print("[PlistManager] Keys are: \(keys)")
-      
-      if keys.count != 0 {
+    func keyAlreadyExists(key: String, inPlistWithName: String) -> Bool {
         
-        for (_,element) in keys.enumerated() {
-          
-          //print("[PlistManager] Key Index - \(index) = \(element)")
-          if element as! String == key {
-            plistManagerPrint("Checked if item exists in '\(inPlistWithName).plist' and found it for key: \(key)")
-            keyExists = true
-          } else {
-            //print("[PlistManager] This is Element with key '\(element)' and not the Element that we are looking for with Key: \(key)")
-          }
-        }
+        guard let plist = Plist(name: inPlistWithName),
+            let dict = plist.getMutablePlistFile() else { return false }
         
-      } else {
-        keyExists =  false
-      }
-      
-    } else {
-      keyExists = false
+        let keys = dict.allKeys
+        return keys.contains { $0 as? String == key }
+        
     }
-    
-    return keyExists
-  }
   
   func logAction(for plist:Plist, withPlistName: String) {
     if logPlistManager {

@@ -239,6 +239,14 @@ public class SwiftyPlistManager {
     }
   }
   
+  public func addNewOrSave(_ value: Any, forKey: String, toPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
+    if keyAlreadyExists(key: forKey, inPlistWithName: toPlistWithName){
+        save(value, forKey: forKey, toPlistWithName: toPlistWithName, completion: completion)
+    }else{
+        addNew(value, key: forKey, toPlistWithName: toPlistWithName, completion: completion)
+    }
+  }
+    
   public func save(_ value: Any, forKey: String, toPlistWithName: String, completion:(_ error :SwiftyPlistManagerError?) -> ()) {
     
     if let plist = Plist(name: toPlistWithName) {
